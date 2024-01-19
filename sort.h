@@ -28,7 +28,7 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 size_t partition(int *array, int lb, int ub, size_t size);
-
+void shell_sort(int *array, size_t size);
 
 
 #endif /*SORT_H*/
