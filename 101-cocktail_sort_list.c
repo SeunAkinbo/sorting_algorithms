@@ -10,11 +10,14 @@
 
 void cocktail_sort_list(listint_t **list)
 {
-	bool swapped = true;
-	listint_t *current = *list, *end;
+	bool swapped;
+	listint_t *current, *end;
 
 	if (!list || !(*list) || !((*list)->next))
 		return;
+
+	current = *list;
+	swapped = true;
 
 	for (end = *list; end->next != NULL;)
 		end = end->next;
