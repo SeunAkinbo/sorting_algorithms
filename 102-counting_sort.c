@@ -11,17 +11,12 @@
 void counting_sort(int *array, size_t size)
 {
 	size_t i, j;
-	int max, k, *counting_array;
+	int max, k, *counting_array, *out_array;
 
 	if (array == NULL || size < 2)
 		return;
 
-	max = array[0];
-	for (i = 1; i < size; i++)
-	{
-		if (array[i] > max)
-			max = array[i];
-	}
+	max = max_num(array, size);
 
 	counting_array = malloc((max + 1) * sizeof(int));
 	if (counting_array == NULL)
@@ -31,9 +26,16 @@ void counting_sort(int *array, size_t size)
 		counting_array[k] = 0;
 
 	for (i = 0; i < size; i++)
-		counting_array[array[i]]++;
+		counting_array[array[i]] += 1;
 
-	print_array(counting_array, max + 1);
+	out_array = malloc((max + 1) * sizeof(int));
+	if (out_array == NULL)
+		return;
+	for (k = 0; k < (max + 1); k++)
+		out_array[k] = counting_array[k];
+	for (k = 0; k < (max + 1); k++)
+		out_array[k] += out_array[k - 1];
+	print_array(out_array, max + 1);
 
 	j = 0;
 	for (k = 0; k <= max; k++)
@@ -46,5 +48,28 @@ void counting_sort(int *array, size_t size)
 		}
 	}
 
+	free(out_array);
 	free(counting_array);
+}
+
+/**
+ * max_num - Checks for the maximum number
+ * @array: Array of integers
+ * @size: The size of the array
+ * Return: The maximum integer
+ **/
+
+int max_num(int *array, size_t size)
+{
+	int max;
+	size_t counter;
+
+	max = array[0];
+	for (counter = 1; counter < size; counter++)
+	{
+		if (max < array[counter])
+			max = array[counter];
+	}
+
+	return (max);
 }

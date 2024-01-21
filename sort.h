@@ -34,6 +34,9 @@ void cocktail_sort_list(listint_t **list);
 void swap_node_after(listint_t **list, listint_t **tail, listint_t **current);
 void swap_node_before(listint_t **list, listint_t **tail, listint_t **current);
 void counting_sort(int *array, size_t size);
+int max_num(int *array, size_t size);
+
+
 
 
 #endif /*SORT_H*/
