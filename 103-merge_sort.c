@@ -46,10 +46,9 @@ void merge(int *array, int *left, size_t left_size, int *right,
 	for (i = 0; i < left_size + right_size; i++)
 		array[i] = temp[i];
 
-	free(temp);
-
 	printf("[Done]: ");
 	print_array(array, left_size + right_size);
+	free(temp);
 }
 
 
@@ -89,7 +88,7 @@ void merge_sort_recursive(int *array, size_t size)
 
 void merge_sort(int *array, size_t size)
 {
-	if (!array || size <= 1)
+	if (!array || size < 2)
 		return;
 
 	merge_sort_recursive(array, size);
