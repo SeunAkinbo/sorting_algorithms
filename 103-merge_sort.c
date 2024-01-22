@@ -15,7 +15,7 @@ void merge(int *array, int *left, size_t left_size, int *right,
 	int *temp;
 	size_t i, j, k;
 
-	printf("[Merging...]\n");
+	printf("Merging...\n");
 	printf("[left]: ");
 	print_array(left, left_size);
 	printf("[right]: ");
