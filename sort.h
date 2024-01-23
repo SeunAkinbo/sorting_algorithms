@@ -42,6 +42,7 @@ void merge_sort_recursive(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void swap_heap(int *a, int *b);
 void heapify(int *array, size_t size, size_t base, size_t root);
+void radix_sort(int *array, size_t size);
 
 
 #endif /*SORT_H*/
